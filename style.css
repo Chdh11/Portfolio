@@ -1,0 +1,67 @@
+body {
+    background-color: #060724;
+    color: white;
+}
+#logo {
+    height: 90px;
+    width: 90px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+#menu
+{
+    text-align: right;
+    margin-right: 93px;
+    position: relative;
+    bottom: 90px;
+}
+
+/* last page on website */
+#collaboration
+{
+    font-size: 73px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    left: 80px;
+}
+#heading
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #eb7f67;
+    position: relative;
+    left: 80px;
+    bottom: 30px;
+}
+#myDetails
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    left: 80px;
+    bottom: 30px;
+}
+#socials
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 28px;
+    text-align: right;
+    position: relative;
+    right: 350px;
+    bottom: 355px;
+}
+#contactMe
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 28px;
+    text-align: right;
+    position: relative;
+    right: 400px;
+    bottom: 300px;
+}
+#contactName
+{
+    width: 568px;
+    height: 66px;
+    position: relative;
+    
+
+}
