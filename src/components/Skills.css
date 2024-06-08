@@ -1,0 +1,35 @@
+.skill-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal-width columns */
+    gap: 13px; /* Adds space between grid items */
+    margin: 0 auto; /* Centers the container if needed */
+    max-width: 1200px; /* Optional: Set a max width for better alignment */
+    padding-top: 15px;
+}
+
+.skill-item {
+    background-color: #f5f4f4;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    height: auto;
+}
+
+.skill-container :hover{
+    transform: scale(0.95);
+    background-color: #ffffff;
+}
+
+
+.skill-item img {
+    max-width: 100%; /* Ensure the images fit within their containers */
+    height: 70px; /* Maintain aspect ratio */
+    display: block; /* Prevents images from stretching */
+    margin: 0 auto; /* Centers the images */
+}
+.skill-item p{
+    padding-top: 13px;
+    font-weight: 700;
+    font-size: 14px;
+}

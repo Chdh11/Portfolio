@@ -1,0 +1,190 @@
+.container {
+  display: grid;
+  grid-template-columns: 300px 1fr; /* First column is 300px, second column takes the remaining space */
+  grid-template-rows: 100vh; /* Full viewport height */
+  height: 100vh; /* Ensure the container takes the full height of the viewport */
+}
+
+
+/* Sidebar */
+.sidebar {
+  background-color: #ffffff;
+  position: fixed;
+  height: 100%;
+  width: 300px;
+  padding: 40px;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: flex-start;
+}
+.mypic{
+  width: 300px;
+  height: 290px;
+  object-fit: cover;
+  filter: contrast(120%);
+}
+.intro{
+  margin-bottom: 20px;
+  /* text-align: justify; */
+}
+.intro h1{
+  font-size: 40px;
+  font-weight: bold;
+  position: relative;
+  bottom: 10px;
+}
+.intro span{
+  font-size: 13px;
+  position: relative;
+  bottom: 30px;
+  
+}
+.sidebar button{
+  margin-bottom: 20px;
+  font-size: 17px;
+  padding: 5px;
+  position: relative;
+  bottom: 25px;
+  border: none;
+  background-color: coral;
+  border-radius: 10px;
+  width: 300px;
+  height: 40px;
+  cursor: pointer;
+}
+.socials a img{
+  width: 40px; 
+  height: 40px; 
+  cursor: pointer;
+}
+.socials{
+  width:250px;
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between;
+  position: relative;
+  bottom: 15px;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 400px; 
+  display: grid;
+  grid-template-columns: auto; 
+  grid-template-rows: auto auto auto; 
+  padding-top:20px;
+  padding-bottom:20px;
+  padding-left: 10px;
+  gap:20px;
+}
+.skills, .projects, .contact {
+  background-color: #eae3e3;
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 58vw; 
+  height: auto;
+}
+.skills {
+  grid-row: 1; 
+  display: grid; 
+  grid-template-columns: 83% 17%; /* Two columns for the first row */
+  grid-template-rows: auto auto;
+  align-items: center;
+}
+.skill-tabs{
+  grid-column: 1 / -1;
+}
+.projects {
+  grid-row: 2;
+  display: grid; 
+  grid-template-columns: 83% 17%; /* Two columns for the first row */
+  grid-template-rows: auto auto;
+  align-items: center;
+
+}
+
+.project-tabs{
+  grid-column: 1 / -1;
+  margin-top: 20px;
+  
+}
+.explore-projects{
+  border: none;
+  background: coral;
+  border-radius: 5px;
+  font-size: 12px;
+  padding:8px;
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+}
+
+/* Contact me */
+.contact {
+  grid-row: 3; 
+  height: auto;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+}
+.heading{
+  font-size: 40px;
+  font-weight: bold;
+  margin-left:5px;
+}
+.email-info{
+  display: flex;
+  align-items: center;
+  gap:10px;
+  margin-top: 10px;
+  margin-left: 5px; 
+}
+.email-info img{
+  width:17px;
+  height:17px;
+}
+.email-info span{
+  font-size: 13px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 15px; 
+  margin-top: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group input{
+  height: 35px;
+  padding-left: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.form-group textarea{
+  height: 150px;
+  padding-left: 10px;
+  padding-top: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.form-grid button {
+  font-size: 17px;
+  margin-top: 10px; 
+  margin-left: 5px; 
+  background-color: coral;
+  border: none;
+  height: 35px;
+  border-radius: 5px;
+  width: 150px;
+  cursor: pointer;
+}
+
+
+
+

@@ -1,0 +1,96 @@
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.slider-container:hover button {
+  opacity: 1;
+}
+
+button.prev {
+  left: 0;
+}
+
+button.next {
+  right: 0;
+}
+
+.slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.slider-inner {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.project {
+  flex: 0 0 calc(35% - 20px); /* Adjusted to 3 items to fit 100% width */
+  height: 380px;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 10px;
+  margin: 0 5px;
+  text-align: center;
+  transition: flex 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+.project:hover {
+  flex: 0 0 calc(65% - 20px); /* Expanded size */
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+
+
+.project h3{
+  margin-top: 10px;
+}
+.project a{
+  justify-self: left;
+  padding: 10px;
+  
+}
+.project img{
+  width:35px;
+  height: 35px;
+  margin-top: 10px;
+}
+.project p{
+  font-size: 12px;
+  text-align: justify;
+  padding-top:0px;
+  padding-left: 10px;
+  padding-right:10px ;
+  margin-top: 0px;
+}
