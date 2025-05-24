@@ -1,5 +1,4 @@
 import React from 'react';
-import haha from './haha.jpg'
 import linkedin from './linkedin.png'
 import github from './github.png'
 import kaggle from './kaggle.png'
@@ -61,7 +60,7 @@ function Home() {
       </div>
       <div className='section2'>
       <div className='section3'><About/></div>
-      {/* <div className='section3'><Skills/></div> */}
+      <div className='section3'><Skills/></div>
       <div className='section4'><Projects /></div>
       <div className='section5'><Blogs /></div>
       <div className='section6'><Contact/></div>

@@ -30,8 +30,8 @@ export default function Blogs() {
                 fontSize: "90px",
                 fontWeight: "bold",
                 marginBottom: "50px",
-                textAlign: "left",
-                marginLeft: "120px",
+                textAlign: "right",
+                marginRight: "120px",
                 fontFamily:"Oxanium",
                 // color:"#ed6f63"
             }}>
