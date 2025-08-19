@@ -91,13 +91,13 @@ function Projects() {
             <p className='mb-7 md:mb-15 lg:mb-10 text-xs md:text-base text-center'>A collection of what I’ve been building lately.</p>
         </section>
 
-      <section className='flex justify-center items-center mb-15'>
+      <section className='flex justify-center items-center ml-10 mr-10 mb-15'>
         {
           filters.map((filter)=>(
 
             <button key={filter} 
             onClick={() => setSelectedFilter(filter)}
-            className={`px-4 py-2 ml-2 mr-2 rounded-xl cursor-pointer ${
+            className={`px-4 py-2 ml-2 mr-2 rounded-xl text-xs md:text-base cursor-pointer ${
               selectedFilter === filter
                 ? "bg-white text-black border-1"
                 : "bg-black text-white border-1"
@@ -110,35 +110,48 @@ function Projects() {
         }
       </section>
       
-      <section className='mb-15'>
+      <section className='mb-10 lg:mb-20'>
         {projects.map((project)=>
           project.domain.includes(selectedFilter) ?
-          <div key={project.id} className='flex flex-row  justify-center items-center mb-15 '>
-            <div className='flex flex-col gap-2 w-xl px-10 py-7 border-1 mb-10 h-[250px] rounded'>
-              <h1 className='text-2xl font-bold '>{project.title}</h1>
-              <p className='mb-2'>{project.description}</p>
+          <div key={project.id} className='flex flex-col lg:flex-row mr-10 ml-10 justify-center items-center mb-3 lg:mb-15 '>
+            <div className='flex flex-col gap-2 w-[95%] md:w-xl px-6 py-4 md:px-10 md:py-7 border-1 mb-3 md:mb-5 md:h-[250px] rounded'>
+              <h1 className='text-base md:text-2xl font-bold '>{project.title}</h1>
+              <p className='text-xs md:text-base mb-2'>{project.description}</p>
+              <div className=''>
+                {
+                  project.stack.map((stack)=>(
+
+                    <button key={stack} 
+                    className="text-xs px-2 py-1 md:px-2 md:py-2 mr-2 mb-2  rounded md:rounded-xl bg-white text-black border-1">
+
+                      {stack}
+
+                    </button>
+                  ))
+                }
+              </div>
               <div className='flex flex-row gap-3'>
                 <Link href={project.github_repo} target='_blank'> <Image src={github} alt="github repo" className='w-[25px] h-[25px]'/></Link>
                 {project.article ? <Link href={project.article} target='_blank'> <Image src={medium} alt="medium article" className='w-[25px] h-[25px]'/> </Link> : null}
               </div>
             </div>
             {project.url ?
-              <div className=''>
-                <iframe src={project.url} className="w-[580px] h-[380px] rounded hover:scale-110 transition duration-300" />
+              <div className='hidden lg:block'>
+                <iframe src={project.url} className="w-auto h-auto  md:w-[580px] md:h-[380px] rounded hover:scale-110 transition duration-300 " />
               </div> :
-              <div> 
-                <Image src={photobooth} alt='placeholder image' width={550} height={350} className='w-[580px] h-[380px] rounded hover:scale-110 transition duration-300' />
+              <div className='hidden lg:block'> 
+                <Image src={photobooth} alt='placeholder image' width={550} height={350} className='w-auto h-auto md:w-[580px] md:h-[380px] rounded hover:scale-110 transition duration-300' />
               </div>
             }
           </div>
           : null
         )}
       </section>
-      <div className="mt-20 mb-30 text-center">
+      <div className="mt-10 mb-10 md:mb-20 lg:mb-30 text-center">
         <Link
           href="https://github.com/Chdh11"
           target="_blank"
-          className="inline-block px-6 py-3 rounded-xl border border-white text-white font-semibold hover:bg-black hover:text-white transition"
+          className="inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base rounded-xl border border-white text-white hover:bg-black hover:text-white transition"
         >
           Explore More
         </Link>
