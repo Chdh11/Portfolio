@@ -38,7 +38,8 @@ function Hero() {
 
     {/* About section */}
     <section className='flex flex-col justify-center items-center mb-20 md:mb-30 lg:mb-40'>
-        <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-10 md:mb-20 lg:mb-25'>A Little About Me</h1>
+        <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-5 md:mb-5 lg:mb-5'>A Little About Me</h1>
+        <p className='mb-7 md:mb-15 lg:mb-20 text-xs md:text-base text-center mb-10 md:mb-20 lg:mb-25'>Fun fact: I love to crochet and read.</p>
        <div className="flex flex-col lg:flex-row gap-10 ml-10 mr-10 md:ml-15 md:mr-15">
         {/* lg:w-[300px] md:w-[200px] w-[250px] h-[250px] bg-white */}
             <div className="flex flex-col md:flex-row lg:flex-col">
