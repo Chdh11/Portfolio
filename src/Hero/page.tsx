@@ -23,7 +23,7 @@ function Hero() {
              <h1 className="text-xl font-bold">PORTFOLIO</h1>
             <div className='ml-auto flex md:gap-5'>
                 <Link href='https://github.com/Chdh11' target='blank'><Image src={github} alt="Github" className='w-[30px] h-[30px]  hidden md:block '/></Link>
-                <Link href='https://www.linkedin.com/in/chhavi-dhankhar-a488a9228/' target='blank'><Image src={linkedin} alt="Linkedin" className='w-[30px] h-[30px]  '/></Link>
+                <Link href='https://www.linkedin.com/in/chhavi-dhankhar-a488a9228/' target='blank'><Image src={linkedin} alt="Linkedin" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px]  '/></Link>
                 <Link href='https://medium.com/@chhavidhankhar07' target='blank'><Image src={medium} alt="Medium" className='w-[30px] h-[30px]  hidden md:block'/></Link>
                 {/* image */}
             </div>
@@ -31,39 +31,68 @@ function Hero() {
     </section>
 
     {/* home section */}
-    <section className='flex flex-col justify-center items-center text-center  w-2/3 mx-auto mt-30 md:mt-45 lg:mt-60 mb-25 md:mb-25 lg:mb-40 '>
-    {/* <div className='flex flex-col'> */}
+    {/* <section className='flex flex-row justify-center items-center text-center  w-2/3 mx-auto mt-30 md:mt-45 lg:mt-60 mb-25 md:mb-25 lg:mb-40 '>
+    <div className='flex flex-col'>
         <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl  mb-10 font-bold'>CHHAVI DHANKHAR</h1>
         <p className='mb-10 text-xs md:text-base lg:w-[70%]'>Hi, I’m a full-stack and AI/ML developer passionate about building meaningful projects, exploring emerging tech, and continuously learning along the way</p>
         <button className='border-1 px-4 py-3 text-xs rounded-xl md:text-base rounded cursor-pointer '>Download Resume</button>
-    {/* </div> */}
-        {/* <Image src={placeholder} alt="placeholder image" className='w-[600px] h-[600px]'/> */}
+    </div>
+        <Image src={placeholder} alt="placeholder image" className='w-[600px] h-[600px]'/>
+    </section> */}
+
+    <section className="flex flex-col lg:flex-row justify-between items-center max-w-screen-lg mx-auto 
+                   mt-20 md:mt-32 lg:mt-50 mb-20 md:mb-28 lg:mb-40 gap-10 lg:gap-25 px-6">
+      {/* Left: Text Section */}
+      <div className="flex-1 flex flex-col text-center lg:text-left px-10 lg:px-6 sm:w-[70%] md:w-[70%] ">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+          CHHAVI DHANKHAR
+        </h1>
+        <p className="mb-8 text-xs md:text-base ">
+          Hi, I’m a full-stack and AI/ML developer, fueled by coffee and lots of passion for tech. 
+        </p>
+        <button className="border px-5 py-3 text-xs md:text-base rounded-xl cursor-pointer hover:shadow-md transition ">
+          Download Resume
+        </button>
+      </div>
+
+      {/* Right: Image Section */}
+      <div className="flex-1 flex justify-center ">
+        <Image 
+          src={placeholder} 
+          alt="Profile picture" 
+          width={550} 
+          height={550} 
+          className="rounded object-cover shadow-lg "
+        />
+      </div>
     </section>
+
+
         {/* <div className='block md:hidden w-2xl'></div> */}
-    <Image priority src={downIcon} alt="Down" className='w-[40px] h-[40px] mx-auto hidden md:block mb-25 lg:mb-45  animate-bounce' />
+    {/* <Image priority src={downIcon} alt="Down" className='w-[40px] h-[40px] mx-auto hidden md:block mb-25 lg:mb-45  animate-bounce' /> */}
 
     {/* About section */}
     <section className='flex flex-col justify-center items-center mb-20 md:mb-30 lg:mb-40'>
         <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-5 lg:mb-7'>A Little About Me</h1>
         <p className='mb-7 md:mb-15 lg:mb-20 text-xs md:text-base text-center mb-10 md:mb-15 lg:mb-20'>Fun fact: I love to crochet and read.</p>
-       <div className="flex flex-col justify-center items-center lg:flex-row gap-10 md:gap-15 lg:gap-10 ml-10 mr-10 md:ml-15 md:mr-15 ">
+       <div className="flex flex-col justify-center items-center lg:flex-row gap-10 md:gap-15 lg:gap-15 ml-10 mr-10 md:ml-15 md:mr-15 ">
         
             <div className="flex flex-col flex-1 justify-center items-center text-center w-[80%] md:w-[400px] md:h-[320px] lg:w-[30%] lg:h-[30%] ">
-                <Image src={about1} alt='Education' className=' w-[60px] h-[60px] md:w-[90px] md:h-[90px] mb-5 md:mb-10'/>
+                <Image src={about1} alt='Education' className=' w-[55px] h-[55px] md:w-[80px] md:h-[80px] mb-5 md:mb-10'/>
                 <div className='flex flex-col '>
                     <h1 className='text-xl md:text-2xl font-bold mb-3 md:mb-5'>Education</h1>
                     <p className='text-xs md:text-base'>I hold a Computer Engineering degree, with a strong foundation in software development and exposure to hardware concepts.</p>
                 </div>
             </div>
             <div className="flex flex-col flex-1 justify-center items-center text-center w-[80%] md:w-[400px] md:h-[320px] lg:w-[30%] lg:h-[30%]">
-                <Image src={about2} alt='Computer' className='w-[60px] h-[60px] md:w-[90px] md:h-[90px] mb-5 md:mb-10'/>
+                <Image src={about2} alt='Computer' className=' w-[55px] h-[55px] md:w-[80px] md:h-[80px] mb-5 md:mb-10'/>
                 <div className='flex flex-col'>
                     <h1 className='text-xl md:text-2xl font-bold mb-5'>What I Build</h1>
                     <p className='text-xs md:text-base'>I specialize in full-stack development and AI/ML, combining end-to-end expertise to build practical, innovative, and impactful projects.</p>
                 </div>
             </div>
             <div className="flex flex-col flex-1 justify-center items-center text-center w-[80%] md:w-[400px] md:h-[320px] lg:w-[30%] lg:h-[30%]">
-                <Image src={about3} alt='Coffee' className='w-[60px] h-[60px] md:w-[90px] md:h-[90px] mb-5 md:mb-10'/>
+                <Image src={about3} alt='Coffee' className='w-[55px] h-[55px] md:w-[80px] md:h-[80px] mb-5 md:mb-10'/>
                 <div className='flex flex-col'>
                     <h1 className='text-xl md:text-2xl font-bold mb-5'>My Drive</h1>
                     <p className='text-xs md:text-base'>Driven by curiosity and a passion for learning, I constantly refine my skills and take on projects that push me forward.</p>
@@ -194,9 +223,9 @@ function Hero() {
     </section>
 
 
-    <section className='flex flex-col md:flex-row md:gap-20 lg:gap-40 justify-center items-center mt-20 lg:mt-40 mb-20 md:mb-30 lg:mb-40'>
+    <section className='flex flex-col md:flex-row md:gap-20 lg:gap-30 justify-center items-center mt-20 lg:mt-40 mb-20 md:mb-30 lg:mb-40 lg:px-20'>
     <div className='flex flex-col'>
-        <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-8xl mb-5 md:mb-10'>Let's Talk</h1>
+        <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-5 md:mb-10 font-bold'>LET'S TALK</h1>
         <button className='border-1 p-2 md:p-4 rounded-xl cursor-pointer text-xs md:text-base mb-5 md:mb-10'>Download Resume</button>
         <div className='flex gap-5 md:gap-10 justify-center mb-10 md:mb-0'>
             <Link href='https://github.com/Chdh11' target='blank'><Image src={github} alt="Github" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px]'/></Link>
