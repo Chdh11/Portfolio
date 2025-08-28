@@ -5,88 +5,45 @@ import github from '@/Images/iconmonstr-github-1-240.png'
 import photobooth from '@/Images/project_images/photobooth.png'
 import medium from '@/Images/iconmonstr-medium-3-240.png'
 import live_app from '@/Images/iconmonstr-app-filled-240.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
-function Projects() {
-  const projects=[
-    {
-      id:1,
-      domain:['All','AI/ML'],
-      title:"AI Interview Coach",
-      description:"Voice-based interview coach that generates, records, and evaluates job interview responses using Faster-Whisper, gTTS, and Gemini AI.",
-      stack:['Python','Streamlit','Gemini AI','Faster-Whisper','gTTS'],
-      video_url:'https://player.cloudinary.com/embed/?cloud_name=ditjqmlyb&public_id=screen-capture_ndorjx&profile=cld-default',
-      url:'https://ai-interview-coach-11.streamlit.app/',
-      github_repo:'https://github.com/Chdh11/AI-Interview-Coach',
-      article:'https://medium.com/@chhavidhankhar07/how-i-built-a-voice-driven-interview-prep-app-using-whisper-gemini-and-streamlit-fcfdfc8ebfe8',
-      placeholder_image:'',
-    },
-    {
-      id:2,
-      domain:['All','Full-Stack Development'],
-      title:"Photobooth Web App",
-      description:"A personalized photo booth web app built with Next.js and Supabase",
-      stack:['Web Development','Next.js','Supabase','TailwindCSS','Vercel'],
-      video_url:'',
-      url:'https://photobooth-nine-gamma.vercel.app/',
-      github_repo:'https://github.com/Chdh11/Photobooth-App',
-      article:'https://medium.com/@chhavidhankhar07/building-a-photobooth-web-app-with-next-js-and-supabase-5a1c580bb26f',
-      placeholder_image:'photobooth',
-    },
-    {
-      id:3,
-      domain:['All','AI/ML'],
-      title:"Sentiment Analysis Dashboard",
-      description:"'Sentiment Analysis of tweets about US Airlines' Dashboard made using Streamlit",
-      stack:['Streamlit','Python'],
-      video_url:'https://player.cloudinary.com/embed/?cloud_name=ditjqmlyb&public_id=screen-capture_1_d1k5hk&profile=cld-default',
-      url:'https://senti-dash.streamlit.app/',
-      github_repo:'https://github.com/Chdh11/Sentiment_Analysis_Dashboard',
-      article:null,
-      placeholder_image:'',
-    },
-    {
-      id:4,
-      domain:['All','AI/ML'],
-      title:"Topsis-Chhavi-102103605",
-      description:"A python package on TOPSIS (Technique for Order of Preference by Similarity to Ideal Solution)",
-      stack:['Python','CLI'],
-      video_url:'',
-      url:null,
-      github_repo:'https://github.com/Chdh11/Topsis-Chhavi-102103605',
-      article:null,
-      placeholder_image:'',
-    },
-    {
-      id:5,
-      domain:['All','Full-Stack Development'],
-      title:"Simple Calculator",
-      description:"A simple calculator application built using ReactJS",
-      stack:['Web Development','ReactJS'],
-      video_url:'',
-      url:'https://chdh11.github.io/Calculator-ReactJS/',
-      github_repo:'https://github.com/Chdh11/Calculator-ReactJS',
-      article:null,
-      placeholder_image:'',
-    },
-    
-  ]
-  const filters=['All','Full-Stack Development','AI/ML'];
-  // for(let i=0;i<projects.length;i++)
-  // {
-  //   for(let j=0;j<projects[i].stack.length;j++)
-  //   {
-  //     if(!filters.includes(projects[i].stack[j]))
-  //     {
-  //       filters.push(projects[i].stack[j]);
-  //     }
-      
-  //   }
-  // }
-  // console.log(filters);
+interface Project{
+  _id:string,
+  domain:string,
+  title:string,
+  description:string,
+  stack:string[],
+  video_url:string,
+  url:string,
+  github_repo:string,
+  article:string
+}
 
+function Projects() {
+  const [projects,setProjects]=useState<Project[]>([]);
+  const filters=['All','Full-Stack Development','AI/ML','Data Science'];
   const [selectedFilter, setSelectedFilter] = useState("All");
+
+  useEffect(()=>{
+    const fetchProjects= async ()=>{
+      try{
+        const res=await fetch('api/projects');
+        console.log(res);
+        const data=await res.json();
+        console.log(data);
+        setProjects(data.data);
+      }catch(err){
+        console.log("Error fetchiong:",err);
+      }
+    };
+    fetchProjects();
+  },[]);
+
+  const filteredProjects = projects.filter((project) =>
+  selectedFilter === "All" ? true : project.domain === selectedFilter
+);
+
 
    
     
@@ -116,11 +73,9 @@ function Projects() {
         }
       </section>
       <section className='mb-10 lg:mb-20'>
-  {projects
-    .filter(project => project.domain.includes(selectedFilter)) 
-    .slice(0, 3)
+  {filteredProjects.slice(0, 3)
     .map((project) => (
-      <div key={project.id} className='flex flex-col lg:flex-col mr-10 ml-10 justify-center items-center mb-3 md:mb-20 lg:mb-20 lg:px-10'>
+      <div key={project._id} className='flex flex-col lg:flex-col mr-10 ml-10 justify-center items-center mb-3 md:mb-20 lg:mb-20 lg:px-10'>
         <div className='flex flex-col gap-2 w-[95%] md:w-xl lg:w-3xl px-6 py-4 md:px-10 md:py-7 border-1 mb-3 md:mb-5 md:mb-15 lg:mb-15 md:h-auto rounded'>
           <h1 className='text-base md:text-2xl font-bold'>{project.title}</h1>
           <p className='text-xs md:text-base mb-2'>{project.description}</p>
@@ -164,49 +119,6 @@ function Projects() {
       </div>
     ))}
 </section>
-
-      {/* <section className='mb-10 lg:mb-20'>
-        {projects.map((project)=>
-          project.domain.includes(selectedFilter) ?
-          <div key={project.id} className='flex flex-col lg:flex-col mr-10 ml-10 justify-center items-center mb-3 md:mb-20 lg:mb-20 lg:px-10 '>
-            <div className='flex flex-col gap-2 w-[95%] md:w-xl lg:w-3xl px-6 py-4 md:px-10 md:py-7 border-1 mb-3 md:mb-5 md:mb-15 lg:mb-15 md:h-auto rounded'>
-              <h1 className='text-base md:text-2xl font-bold '>{project.title}</h1>
-              <p className='text-xs md:text-base mb-2'>{project.description}</p>
-              <div className=''>
-                {
-                  project.stack.map((stack)=>(
-
-                    <button key={stack} 
-                    className="text-xs px-2 py-1 md:px-2 md:py-2 mr-2 mb-2  rounded md:rounded-xl bg-white text-black border-1">
-
-                      {stack}
-
-                    </button>
-                  ))
-                }
-              </div>
-              <div className='flex flex-row gap-3'>
-                {project.url ? <Link href={project.url} target='_blank'><Image src={live_app} alt="live app" className='w-[25px] h-[25px]'/> </Link>:null}
-                <Link href={project.github_repo} target='_blank'> <Image src={github} alt="github repo" className='w-[25px] h-[25px]'/></Link>
-                {project.article ? <Link href={project.article} target='_blank'> <Image src={medium} alt="medium article" className='w-[25px] h-[25px]'/> </Link> : null}
-              </div>
-            </div>
-            {project.video_url ?
-              <div className='hidden md:block'>
-                <iframe src={project.video_url}
-                width="800"
-                height="500" 
-                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                className="w-xl h-[310px] lg:w-3xl lg:h-[400px] rounded scale-120 transition duration-300 " />
-              </div> :
-              <div className='hidden md:block'> 
-                <Image src={photobooth} alt='placeholder image' width={550} height={350} className='w-xl h-[310px] lg:w-3xl lg:h-[400px] rounded scale-120 transition duration-300' />
-              </div>
-            }
-          </div>
-          : null
-        )}
-      </section> */}
 
       <div className="mt-10 mb-10 md:mb-20 lg:mb-30 text-center">
         <Link
