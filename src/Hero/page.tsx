@@ -11,6 +11,8 @@ import about1 from '@/Images/iconmonstr-education-1-240.png'
 import about2 from '@/Images/iconmonstr-computer-10-240.png'
 import about3 from '@/Images/iconmonstr-coffee-5-240.png'
 import { useState, useEffect} from 'react'
+import { useScroll, motion } from 'framer-motion'
+
 
 interface Blog{
   _id:string,
@@ -62,9 +64,14 @@ function Hero() {
       alert("Something went wrong.");
     }
   };
+  const { scrollYProgress } = useScroll()
 
   return (
     <div className='text-white bg-black'>
+      {/* <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-white origin-left z-50"
+        style={{ scaleX: scrollYProgress }}
+      /> */}
 
     {/* Top bar */}
     <section className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm lg:mt-6">
@@ -78,10 +85,18 @@ function Hero() {
             </div>
         </div>
     </section>
+    
 
     {/* Intro section */}
-    <section className="flex flex-col lg:flex-row justify-between items-center max-w-screen-lg mx-auto mt-20 md:mt-35 lg:mt-50 mb-20 md:mb-28 lg:mb-40 gap-10 lg:gap-25 px-6">
+    <motion.div
+      className="flex flex-col lg:flex-row justify-between items-center max-w-screen-lg mx-auto mt-20 md:mt-35 lg:mt-50 mb-20 md:mb-28 lg:mb-40 gap-10 lg:gap-25 px-6"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+  >
+    {/* <section className="flex flex-col lg:flex-row justify-between items-center max-w-screen-lg mx-auto mt-20 md:mt-35 lg:mt-50 mb-20 md:mb-28 lg:mb-40 gap-10 lg:gap-25 px-6"> */}
       {/* Left: Text Section */}
+      
       <div className="flex-1 flex flex-col text-center lg:text-left px-10 lg:px-6 sm:w-[70%] md:w-[70%] ">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
           CHHAVI DHANKHAR
@@ -104,10 +119,61 @@ function Hero() {
           className="rounded object-cover shadow-lg "
         />
       </div>
-    </section>
+    {/* </section> */}
+    </motion.div>
+
+    {/* About Section */}
+  {/* About Section */}
+  <section className='flex flex-col justify-center items-center mb-20 md:mb-30 lg:mb-40 px-6'>
+    <motion.h1 
+      className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-5 lg:mb-7 text-center'
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6 }}
+    >
+      A Little About Me
+    </motion.h1>
+
+    <motion.p 
+      className='mb-10 md:mb-15 lg:mb-20 text-xs md:text-base text-center'
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+    >
+      Fun fact: I love to crochet and read.
+    </motion.p>
+
+    <div className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-12 justify-center items-center w-full max-w-screen-lg">
+      {[
+        { img: about1, title: "Education", text: "I hold a Computer Engineering degree, with a solid foundation in software development and exposure to hardware." },
+        { img: about2, title: "What I Build", text: "I majorly work with full-stack development and AI/ML to build real-world, innovative, and impactful projects." },
+        { img: about3, title: "My Drive", text: "Driven by curiosity and a passion for learning, I constantly refine my skills and take on projects that push me forward." },
+      ].map((item, i) => (
+        <motion.div 
+          key={i} 
+          className="flex flex-col  items-center text-center w-[80%] md:w-[380px] lg:w-[30%] p-6 rounded-xl border border-gray-300 bg-white/10 hover:bg-white/15 shadow-lg hover:shadow-2xl transition duration-300"
+          initial={{ opacity: 0, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 * i }}
+        >
+          <motion.img 
+            src={item.img.src} 
+            alt={item.title} 
+            className='w-[60px] h-[60px] md:w-[70px] md:h-[70px] mb-5 md:mb-7 mt-3'
+            whileHover={{ scale: 1.1 }}
+          />
+          <h2 className='text-xl md:text-2xl font-bold mb-3 md:mb-4'>{item.title}</h2>
+          <p className='text-xs md:text-base mb-3 '>{item.text}</p>
+        </motion.div>
+      ))}
+    </div>
+  </section>
 
     {/* About section */}
-    <section className='flex flex-col justify-center items-center mb-20 md:mb-30 lg:mb-40'>
+    {/* <section className='flex flex-col justify-center items-center mb-20 md:mb-30 lg:mb-40'>
         <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-5 lg:mb-7'>A Little About Me</h1>
         <p className='mb-7 md:mb-15 lg:mb-20 text-xs md:text-base text-center mb-10 md:mb-15 lg:mb-20'>Fun fact: I love to crochet and read.</p>
        <div className="flex flex-col justify-center items-center lg:flex-row gap-10 md:gap-15 lg:gap-15 ml-10 mr-10 md:ml-15 md:mr-15 ">
@@ -134,7 +200,7 @@ function Hero() {
                 </div>
             </div>
         </div>
-    </section>
+    </section> */}
     
     {/* Projects section */}
     <Projects />
@@ -174,76 +240,6 @@ function Hero() {
         </Link>
 
         ))}
-        
-        {/* <Link
-          href="https://medium.com/gitconnected/version-control-for-my-brain-how-i-document-projects-failures-and-lessons-learned-c3871355fad7"
-          target="_blank"
-          className="flex-1 relative group rounded-xl overflow-hidden shadow-md hover:scale-105 transition duration-300 w-[90%] h-[250px] md:h-[300px] lg:h-[400px]"
-        >
-          <Image
-            src={article1}
-            alt="article1 image"
-            className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-80 transition duration-300"
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
-
-          <div className="relative z-10 p-6 text-white flex flex-col justify-end h-full">
-            <h1 className="text-base md:text-xl lg:text-2xl font-bold mb-3">
-              Version Control for My Brain: How I Document Projects, Failures, and Lessons Learned
-            </h1>
-            <p className="text-xs md:text-base">
-              Every documented mistake is a future problem you’ve already solved.
-            </p>
-          </div>
-        </Link> */}
-
-        {/* <Link
-          href="https://medium.com/@chhavidhankhar07/how-i-built-a-voice-driven-interview-prep-app-using-whisper-gemini-and-streamlit-fcfdfc8ebfe8"
-          target="_blank"
-          className="flex-1 relative group rounded-xl overflow-hidden shadow-md hover:scale-105 transition duration-300 w-[90%] h-[250px] md:h-[300px] lg:h-[400px]"
-        >
-          
-          <Image
-            src={article3}
-            alt="article2 image"
-            className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-80 transition duration-300"
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
-
-          <div className="relative z-10 p-6 text-white flex flex-col justify-end h-full">
-            <h1 className="text-base md:text-xl lg:text-2xl font-bold mb-3">
-              How I Built a Voice-Driven Interview Prep App Using Whisper, Gemini, and Streamlit
-            </h1>
-            <p className="text-xs md:text-base">
-              A weekend project that turned into a hands-on crash course in AI app dev.
-            </p>
-          </div>
-        </Link> */}
-
-        {/* <Link
-          href="https://medium.com/@chhavidhankhar07/building-a-photobooth-web-app-with-next-js-and-supabase-5a1c580bb26f"
-          target="_blank"
-          className="flex-1 relative group rounded-xl overflow-hidden shadow-md hover:scale-105 transition duration-300 w-[90%] h-[250px] md:h-[300px] lg:h-[400px]"
-        >
-          
-          <Image
-            src="https://res.cloudinary.com/ditjqmlyb/image/upload/v1756405600/article2_img_k05vge.png"
-            alt="article2 image"
-            width={500} 
-            height={300}
-            className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-80 transition duration-300"
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
-
-          <div className="relative z-10 p-6 text-white flex flex-col justify-end h-full">
-            <h1 className="text-base md:text-xl lg:text-2xl font-bold mb-3">
-              Building a Photobooth Web App with Next.js and Supabase
-            </h1>
-            <p className="text-xs md:text-base">
-              I built this project to upskill myself with Next.js and strengthen my grasp on full-stack concepts.
-            </p>
-          </div>
-        </Link> */}
       </div>
 
       <div className="mt-8 text-center">
