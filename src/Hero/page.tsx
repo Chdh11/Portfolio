@@ -7,14 +7,62 @@ import medium from '@/Images/iconmonstr-medium-3-240.png'
 import linkedin from '@/Images/iconmonstr-linkedin-3-240.png'
 import github from '@/Images/iconmonstr-github-1-240.png'
 import placeholder from '@/Images/IMG_1941.png'
-import article1 from '@/Images/article1_img.png'
-import article2 from '@/Images/article2_img.png'
-import article3 from '@/Images/article3_img.png'
 import about1 from '@/Images/iconmonstr-education-1-240.png'
 import about2 from '@/Images/iconmonstr-computer-10-240.png'
 import about3 from '@/Images/iconmonstr-coffee-5-240.png'
+import { useState, useEffect} from 'react'
+
+interface Blog{
+  _id:string,
+  title:string,
+  description:string,
+  url:string,
+  image_url:string
+}
 
 function Hero() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [blogs,setBlogs]=useState<Blog[]>([]);
+  // const [status, setStatus] = useState("");
+
+  useEffect(()=>{
+      const fetchBlogs= async ()=>{
+        try{
+          const res=await fetch('api/blogs');
+          console.log(res);
+          const data=await res.json();
+          console.log(data);
+          setBlogs(data.data);
+        }catch(err){
+          console.log("Error fetchiong:",err);
+        }
+      };
+      fetchBlogs();
+    },[]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault(); // prevent page reload
+    try {
+      const res = await fetch("/api/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, message }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        alert("Message sent successfully!");
+        setEmail("");
+        setMessage("");
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong.");
+    }
+  };
+
   return (
     <div className='text-white bg-black'>
 
@@ -99,8 +147,35 @@ function Hero() {
       <p className='mb-10 md:mb-15 lg:mb-20 text-xs md:text-base text-center'>I write sometimes.</p>
 
       <div className="flex flex-col justify-center items-center lg:flex-row gap-8 md:gap-6 md:mb-15 lg:mb-20">
+
+        {blogs.slice(0,3).map((blog)=>(
+          <Link key={blog._id}
+          href={blog.url}
+          target="_blank"
+          className="flex-1 relative group rounded-xl overflow-hidden shadow-md hover:scale-105 transition duration-300 w-[90%] h-[250px] md:h-[300px] lg:h-[400px]"
+        >
+          <Image
+            src={blog.image_url}
+            alt="article image"
+            width={500} 
+            height={300}
+            className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-80 transition duration-300"
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+
+          <div className="relative z-10 p-6 text-white flex flex-col justify-end h-full">
+            <h1 className="text-base md:text-xl lg:text-2xl font-bold mb-3">
+              {blog.title}
+            </h1>
+            <p className="text-xs md:text-base">
+              {blog.description}
+            </p>
+          </div>
+        </Link>
+
+        ))}
         
-        <Link
+        {/* <Link
           href="https://medium.com/gitconnected/version-control-for-my-brain-how-i-document-projects-failures-and-lessons-learned-c3871355fad7"
           target="_blank"
           className="flex-1 relative group rounded-xl overflow-hidden shadow-md hover:scale-105 transition duration-300 w-[90%] h-[250px] md:h-[300px] lg:h-[400px]"
@@ -120,13 +195,14 @@ function Hero() {
               Every documented mistake is a future problem you’ve already solved.
             </p>
           </div>
-        </Link>
+        </Link> */}
 
-        <Link
+        {/* <Link
           href="https://medium.com/@chhavidhankhar07/how-i-built-a-voice-driven-interview-prep-app-using-whisper-gemini-and-streamlit-fcfdfc8ebfe8"
           target="_blank"
           className="flex-1 relative group rounded-xl overflow-hidden shadow-md hover:scale-105 transition duration-300 w-[90%] h-[250px] md:h-[300px] lg:h-[400px]"
         >
+          
           <Image
             src={article3}
             alt="article2 image"
@@ -142,16 +218,19 @@ function Hero() {
               A weekend project that turned into a hands-on crash course in AI app dev.
             </p>
           </div>
-        </Link>
+        </Link> */}
 
-        <Link
+        {/* <Link
           href="https://medium.com/@chhavidhankhar07/building-a-photobooth-web-app-with-next-js-and-supabase-5a1c580bb26f"
           target="_blank"
           className="flex-1 relative group rounded-xl overflow-hidden shadow-md hover:scale-105 transition duration-300 w-[90%] h-[250px] md:h-[300px] lg:h-[400px]"
         >
+          
           <Image
-            src={article2}
+            src="https://res.cloudinary.com/ditjqmlyb/image/upload/v1756405600/article2_img_k05vge.png"
             alt="article2 image"
+            width={500} 
+            height={300}
             className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-80 transition duration-300"
           />
           <div className="absolute inset-0 bg-black/40"></div>
@@ -164,7 +243,7 @@ function Hero() {
               I built this project to upskill myself with Next.js and strengthen my grasp on full-stack concepts.
             </p>
           </div>
-        </Link>
+        </Link> */}
       </div>
 
       <div className="mt-8 text-center">
@@ -202,14 +281,22 @@ function Hero() {
         </div>
     </div>
     <div className='px-6 py-4 rounded-xl lg:px-8 lg:py-6 md:px-6 md:py-4 border-1 border-white w-[80%] md:w-[35%]'>
-        <form className='flex flex-col'>
+        <form className='flex flex-col' onSubmit={handleSubmit}>
             <label className='mb-2 md:mb-2 lg:mb-4 text-base lg:text-xl md:text-base'>Email</label>
-            <input type='email' placeholder='Enter your email address' className='mb-2 md:mb-2 rounded lg:mb-4 border-1 border-white border-opacity-100 px-2 py-2 lg:px-3 lg:py-3 md:px-2 md:py-2 text-xs md:text-xs lg:text-base'/>
+            <input 
+            type='email' 
+            placeholder='Enter your email address' 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className='mb-2 md:mb-2 rounded lg:mb-4 border-1 border-white border-opacity-100 px-2 py-2 lg:px-3 lg:py-3 md:px-2 md:py-2 text-xs md:text-xs lg:text-base'/>
 
             <label className='mb-2 md:mb-2 lg:mb-4  text-base lg:text-xl md:text-base'>Message</label>
-            <textarea placeholder='What do you want to talk about?' className='mb-2 md:mb-2 rounded lg:mb-4 border-1 border-white border-opacity-10 px-2 py-2 lg:px-3 lg:py-3 md:px-2 md:py-2 h-[150px] text-xs md:text-xs lg:text-base mb-3 md:mb-5 lg:mb-7'/>
+            <textarea placeholder='What do you want to talk about?' 
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className='mb-2 md:mb-2 rounded lg:mb-4 border-1 border-white border-opacity-10 px-2 py-2 lg:px-3 lg:py-3 md:px-2 md:py-2 h-[150px] text-xs md:text-xs lg:text-base mb-3 md:mb-5 lg:mb-7'/>
 
-            <button type='submit' className='inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base bg-white text-black rounded border border-white transition cursor-pointer'>Submit</button>
+            <button type='submit'  className='inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base bg-white text-black rounded border border-white transition cursor-pointer'>Submit</button>
         </form>
     </div>
     </section>
