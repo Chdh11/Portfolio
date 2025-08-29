@@ -74,8 +74,8 @@ function Hero() {
       /> */}
 
     {/* Top bar */}
-    <section className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm lg:mt-6">
-        <div className="max-w-7xl mx-auto flex items-center px-4 py-3 md:border-1 rounded">
+    <section className="fixed top-0 left-0 w-full z-50  lg:mt-6">
+        <div className="max-w-7xl mx-auto flex items-center bg-black/80 backdrop-blur-sm px-4 py-3 md:border-1 rounded">
              <h1 className="text-xl font-bold">PORTFOLIO</h1>
             <div className='ml-auto flex md:gap-5'>
                 <Link href='https://github.com/Chdh11' target='blank'><Image src={github} alt="Github" className='w-[30px] h-[30px]  hidden md:block '/></Link>
@@ -104,7 +104,7 @@ function Hero() {
         <p className="mb-8 text-xs md:text-base ">
           Hi, I’m a full-stack and AI/ML developer, fueled by coffee and lots of passion for tech. 
         </p>
-        <button className="border px-5 py-3 text-xs md:text-base rounded-xl cursor-pointer hover:shadow-md transition ">
+        <button className="border px-5 py-3 text-xs md:text-base rounded-xl cursor-target hover:shadow-md transition ">
           Download Resume
         </button>
       </div>
@@ -126,7 +126,7 @@ function Hero() {
   {/* About Section */}
   <section className='flex flex-col justify-center items-center mb-20 md:mb-30 lg:mb-40 px-6'>
     <motion.h1 
-      className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-5 lg:mb-7 text-center'
+      className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-5 lg:mb-10 text-center'
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
@@ -153,7 +153,7 @@ function Hero() {
       ].map((item, i) => (
         <motion.div 
           key={i} 
-          className="flex flex-col  items-center text-center w-[80%] md:w-[380px] lg:w-[30%] p-6 rounded-xl border border-gray-300 bg-white/10 hover:bg-white/15 shadow-lg hover:shadow-2xl transition duration-300"
+          className="flex flex-col  items-center text-center w-[80%] md:w-[380px] lg:w-[30%] p-6 rounded-xl border border-gray-300 bg-white/5 hover:bg-white/10 shadow-lg hover:shadow-2xl transition duration-300"
           initial={{ opacity: 0, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -206,19 +206,25 @@ function Hero() {
     <Projects />
 
     {/* Blog section */}
+     <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+  >
     <section className="w-full px-6 md:px-12 py-12">
-      <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center">
+      <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-10 text-center">
         Blogs and Articles
       </h2>
       <p className='mb-10 md:mb-15 lg:mb-20 text-xs md:text-base text-center'>I write sometimes.</p>
 
-      <div className="flex flex-col justify-center items-center lg:flex-row gap-8 md:gap-6 md:mb-15 lg:mb-20">
+      <div className="flex flex-col justify-center items-center lg:flex-row gap-8 md:gap-6 md:mb-15 lg:mb-20 lg:ml-10 lg:mr-10">
 
         {blogs.slice(0,3).map((blog)=>(
           <Link key={blog._id}
           href={blog.url}
           target="_blank"
-          className="flex-1 relative group rounded-xl overflow-hidden shadow-md hover:scale-105 transition duration-300 w-[90%] h-[250px] md:h-[300px] lg:h-[400px]"
+          className="flex-1 relative group rounded-xl overflow-hidden shadow-md hover:scale-105 transition duration-300 w-[80%] h-[250px] md:h-[300px] lg:h-[400px]"
         >
           <Image
             src={blog.image_url}
@@ -246,12 +252,13 @@ function Hero() {
         <Link
           href="https://medium.com/@chhavidhankhar07"
           target="_blank"
-          className="inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base rounded-xl border border-white text-white hover:bg-black hover:text-white transition"
+          className="inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base rounded-xl border border-white text-white hover:bg-black hover:text-white transition cursor-target"
         >
           Explore More
         </Link>
       </div>
     </section>
+    </motion.div>
 
     {/* Outside tech world */}
     {/* <section className='text-center'>
@@ -269,7 +276,7 @@ function Hero() {
     <section className='flex flex-col md:flex-row md:gap-20 lg:gap-30 justify-center items-center mt-20 lg:mt-40 mb-20 md:mb-30 lg:mb-40 lg:px-20'>
     <div className='flex flex-col'>
         <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-5 md:mb-10 font-bold'>LET'S TALK</h1>
-        <button className='border-1 p-2 md:p-4 rounded-xl cursor-pointer text-xs md:text-base mb-5 md:mb-10'>Download Resume</button>
+        <button className='border-1 p-2 md:p-4 rounded-xl cursor-pointer text-xs md:text-base mb-5 md:mb-10 cursor-target'>Download Resume</button>
         <div className='flex gap-5 md:gap-10 justify-center mb-10 md:mb-0'>
             <Link href='https://github.com/Chdh11' target='blank'><Image src={github} alt="Github" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px]'/></Link>
             <Link href='https://www.linkedin.com/in/chhavi-dhankhar-a488a9228/' target='blank'><Image src={linkedin} alt="Linkedin" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px]  '/></Link>
@@ -292,7 +299,7 @@ function Hero() {
             onChange={(e) => setMessage(e.target.value)}
             className='mb-2 md:mb-2 rounded lg:mb-4 border-1 border-white border-opacity-10 px-2 py-2 lg:px-3 lg:py-3 md:px-2 md:py-2 h-[150px] text-xs md:text-xs lg:text-base mb-3 md:mb-5 lg:mb-7'/>
 
-            <button type='submit'  className='inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base bg-white text-black rounded border border-white transition cursor-pointer'>Submit</button>
+            <button type='submit'  className='cursor-target inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base bg-white text-black rounded border border-white transition cursor-pointer'>Submit</button>
         </form>
     </div>
     </section>

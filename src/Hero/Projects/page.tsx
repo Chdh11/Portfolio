@@ -8,6 +8,7 @@ import live_app from '@/Images/iconmonstr-app-filled-240.png'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from "framer-motion";
+import ScrollStack from '../../../Components/ScrollStack/ScrollStack'
 
 interface Project{
   _id:string,
@@ -51,27 +52,27 @@ function Projects() {
   return (
     <div>
         <section>
-            <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center'>My Projects</h1>
-            <p className='mb-7 md:mb-15 lg:mb-10 text-xs md:text-base text-center'>A collection of what I’ve been building lately.</p>
+            <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-center'>My Projects</h1>
+            <p className='mb-7 md:mb-15 lg:mb-15 text-xs md:text-base text-center'>A collection of what I’ve been building lately.</p>
         </section>
         {/* Filter Buttons */}
-<section className='flex justify-center items-center ml-10 mr-10 mb-15'>
-  {filters.map((filter) => (
-    <motion.button
-      key={filter}
-      onClick={() => setSelectedFilter(filter)}
-      className={`px-4 py-2 ml-2 mr-2 rounded-xl text-xs md:text-base cursor-pointer ${
-        selectedFilter === filter 
-          ? "bg-white text-black border-1"
-          : "bg-black text-white border-1"
-      }`}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      {filter}
-    </motion.button>
-  ))}
-</section>
+        <section className='flex flex-wrap justify-center items-center ml-10 mr-10 mb-10'>
+          {filters.map((filter) => (
+            <motion.button
+              key={filter}
+              onClick={() => setSelectedFilter(filter)}
+              className={`px-4 py-2 ml-2 mr-2 mb-4 rounded-xl text-xs md:text-base cursor-target ${
+                selectedFilter === filter 
+                  ? "bg-white text-black border-1"
+                  : "bg-black text-white border-1"
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {filter}
+            </motion.button>
+          ))}
+        </section>
 
 {/* Projects */}
 <section className='mb-10 lg:mb-20'>
@@ -220,11 +221,11 @@ function Projects() {
     ))}
 </section> */}
 
-      <div className="mt-10 mb-10 md:mb-20 lg:mb-30 text-center">
+      <div className="mt-10 mb-10 md:mb-20 lg:mb-20 text-center">
         <Link
           href="https://github.com/Chdh11"
           target="_blank"
-          className="inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base rounded-xl border border-white text-white hover:bg-black hover:text-white transition"
+          className="cursor-target inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base rounded-xl border border-white text-white hover:bg-black hover:text-white transition"
         >
           Explore More
         </Link>
