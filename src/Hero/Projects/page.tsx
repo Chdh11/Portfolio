@@ -52,7 +52,7 @@ function Projects() {
     <div>
         <section>
             <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 lg:mb-10 text-center'>My Projects</h1>
-            <p className='mb-7 md:mb-10 lg:mb-10 text-xs md:text-base text-center'>A collection of what I’ve been building lately.</p>
+            <p className='mb-7 md:mb-10 lg:mb-10 text-xs md:text-base text-center'>A collection of what I&apos;ve been building lately.</p>
         </section>
         {/* Filter Buttons */}
         <section className='flex flex-wrap justify-center items-center ml-10 mr-10 mb-10 md:mb-15'>

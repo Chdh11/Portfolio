@@ -315,7 +315,7 @@ Hi, I build projects, solve problems, and share what I learn working with
 >
     <section className='flex flex-col lg:flex-row md:gap-20 lg:gap-30 justify-center items-center mt-20 lg:mt-35 mb-20 md:mb-30 lg:mb-35 lg:px-20'>
     <div className='flex flex-col lg:w-[450px] ml-12 mr-12 md:ml-20 md:mr-20 lg:ml-0 lg:mr-0 text-center'>
-        <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-5 md:mb-7 font-bold'>LET'S TALK</h1>
+        <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-5 md:mb-7 font-bold'>LET&apos;S TALK</h1>
         <p className='text-xs md:text-sm mb-5 md:mb-7 '>A project, a job opportunity, or just to chat, Send me a message.</p>
         <Link
         href="/resume.pdf"
