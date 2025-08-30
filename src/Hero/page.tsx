@@ -162,7 +162,7 @@ Hi, I build projects, solve problems, and share what I learn working with
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.6, delay: 0.2 }}
     >
-      When I’m not coding, you’ll find me crocheting or reading.
+      When I&apos;m not coding, you&apos;ll find me crocheting or reading.
     </motion.p>
 
     <div className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-12 justify-center items-center w-full max-w-screen-lg">
