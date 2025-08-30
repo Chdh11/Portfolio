@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
-import mongoose from "mongoose";
 import Message from "@/models/messages";
 import dbConnect from "@/lib/dbConnect";
-import { request } from "http";
 
 export async function POST(request:Request){
     try{

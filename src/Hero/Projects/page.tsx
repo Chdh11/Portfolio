@@ -2,13 +2,11 @@
 import React from 'react'
 import Image from 'next/image'
 import github from '@/Images/iconmonstr-github-1-240.png'
-import photobooth from '@/Images/project_images/photobooth.png'
 import medium from '@/Images/iconmonstr-medium-3-240.png'
 import live_app from '@/Images/iconmonstr-app-filled-240.png'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from "framer-motion";
-import ScrollStack from '../../../Components/ScrollStack/ScrollStack'
 import Dummy from '@/Images/markus-spiske-cvBBO4PzWPg-unsplash.jpg'
 
 interface Project{
