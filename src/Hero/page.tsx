@@ -12,6 +12,7 @@ import about2 from '@/Images/iconmonstr-computer-10-240.png'
 import about3 from '@/Images/iconmonstr-coffee-5-240.png'
 import { useState, useEffect} from 'react'
 import { useScroll, motion } from 'framer-motion'
+import RotatingText from '../../TextAnimations/RotatingText/RotatingText'
 
 
 interface Blog{
@@ -101,12 +102,31 @@ function Hero() {
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
           CHHAVI DHANKHAR
         </h1>
-        <p className="mb-8 text-xs md:text-base ">
-          Hi, I’m a full-stack and AI/ML developer, fueled by coffee and lots of passion for tech. 
-        </p>
-        <button className="border px-5 py-3 text-xs md:text-base rounded-xl cursor-target hover:shadow-md transition ">
+        <p className="mb-8 text-xs md:text-base">
+Hi, I build projects, solve problems, and share what I learn working with  
+  <span className="inline-block">
+    <RotatingText
+      texts={['Full-Stack', 'AI/ML', 'Data']}
+      mainClassName="text-white px-2 md:px-3 font-bold  rounded-lg inline-block"
+      staggerFrom={"last"}
+      initial={{ y: "100%" }}
+      animate={{ y: 0 }}
+      exit={{ y: "-120%" }}
+      staggerDuration={0.025}
+      splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+      transition={{ type: "spring", damping: 30, stiffness: 400}}
+      rotationInterval={2000}
+    />
+  </span>
+</p>
+
+        <Link
+        href="/resume.pdf"
+        download="Chhavi_Dhankhar_Resume.pdf"
+        className="border px-5 py-3 text-xs md:text-base text-center rounded-xl cursor-target hover:shadow-md transition hover:bg-white/10 hover:scale-105 "
+        >
           Download Resume
-        </button>
+        </Link>
       </div>
 
       {/* Right: Image Section */}
@@ -114,9 +134,9 @@ function Hero() {
         <Image 
           src={placeholder} 
           alt="Profile picture" 
-          width={550} 
-          height={550} 
-          className="rounded object-cover shadow-lg "
+          width={400} 
+          height={400} 
+          className="rounded-xl object-cover shadow-lg "
         />
       </div>
     {/* </section> */}
@@ -142,7 +162,7 @@ function Hero() {
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.6, delay: 0.2 }}
     >
-      Fun fact: I love to crochet and read.
+      When I’m not coding, you’ll find me crocheting or reading.
     </motion.p>
 
     <div className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-12 justify-center items-center w-full max-w-screen-lg">
@@ -206,17 +226,30 @@ function Hero() {
     <Projects />
 
     {/* Blog section */}
-     <motion.div
+     
+    <section className="w-full px-6 md:px-12 py-12">
+      <motion.h1 
+      className='text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 md:mb-5 lg:mb-10 text-center'
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-  >
-    <section className="w-full px-6 md:px-12 py-12">
-      <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-10 text-center">
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6 }}
+    >
         Blogs and Articles
-      </h2>
-      <p className='mb-10 md:mb-15 lg:mb-20 text-xs md:text-base text-center'>I write sometimes.</p>
+      </motion.h1>
+      <motion.p 
+      className='mb-10 md:mb-15 lg:mb-20 text-xs md:text-base text-center'
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+    > Bits of code, life, and everything else.</motion.p>
+
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, delay: 0.2 }}>
 
       <div className="flex flex-col justify-center items-center lg:flex-row gap-8 md:gap-6 md:mb-15 lg:mb-20 lg:ml-10 lg:mr-10">
 
@@ -252,13 +285,13 @@ function Hero() {
         <Link
           href="https://medium.com/@chhavidhankhar07"
           target="_blank"
-          className="inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base rounded-xl border border-white text-white hover:bg-black hover:text-white transition cursor-target"
+          className="inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base rounded-xl border border-white text-white  hover:scale-105 hover:bg-white/10 transition cursor-target"
         >
           Explore More
         </Link>
       </div>
+      </motion.div>
     </section>
-    </motion.div>
 
     {/* Outside tech world */}
     {/* <section className='text-center'>
@@ -273,17 +306,32 @@ function Hero() {
     </section> */}
 
     {/* Contact Section */}
-    <section className='flex flex-col md:flex-row md:gap-20 lg:gap-30 justify-center items-center mt-20 lg:mt-40 mb-20 md:mb-30 lg:mb-40 lg:px-20'>
-    <div className='flex flex-col'>
-        <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-5 md:mb-10 font-bold'>LET'S TALK</h1>
-        <button className='border-1 p-2 md:p-4 rounded-xl cursor-pointer text-xs md:text-base mb-5 md:mb-10 cursor-target'>Download Resume</button>
+    <motion.section
+  
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.2 }}
+  transition={{ duration: 0.6 }}
+>
+    <section className='flex flex-col lg:flex-row md:gap-20 lg:gap-30 justify-center items-center mt-20 lg:mt-35 mb-20 md:mb-30 lg:mb-35 lg:px-20'>
+    <div className='flex flex-col lg:w-[450px] ml-12 mr-12 md:ml-20 md:mr-20 lg:ml-0 lg:mr-0 text-center'>
+        <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-5 md:mb-7 font-bold'>LET'S TALK</h1>
+        <p className='text-xs md:text-sm mb-5 md:mb-7 '>A project, a job opportunity, or just to chat, Send me a message.</p>
+        <Link
+        href="/resume.pdf"
+        download="Chhavi_Dhankhar_Resume.pdf"
+        className="border px-5 py-3 text-xs md:text-base text-center rounded-xl cursor-target hover:shadow-md transition mb-10  hover:scale-105 hover:bg-white/10 "
+        >
+          Download Resume
+        </Link>
+
         <div className='flex gap-5 md:gap-10 justify-center mb-10 md:mb-0'>
-            <Link href='https://github.com/Chdh11' target='blank'><Image src={github} alt="Github" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px]'/></Link>
-            <Link href='https://www.linkedin.com/in/chhavi-dhankhar-a488a9228/' target='blank'><Image src={linkedin} alt="Linkedin" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px]  '/></Link>
-            <Link href='https://medium.com/@chhavidhankhar07' target='blank'><Image src={medium} alt="Medium" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px] '/></Link>
+            <Link href='https://github.com/Chdh11' target='blank'><Image src={github} alt="Github" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px]  hover:scale-125 transition'/></Link>
+            <Link href='https://www.linkedin.com/in/chhavi-dhankhar-a488a9228/' target='blank'><Image src={linkedin} alt="Linkedin" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px] hover:scale-125 transition '/></Link>
+            <Link href='https://medium.com/@chhavidhankhar07' target='blank'><Image src={medium} alt="Medium" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px] hover:scale-125 transition '/></Link>
         </div>
     </div>
-    <div className='px-6 py-4 rounded-xl lg:px-8 lg:py-6 md:px-6 md:py-4 border-1 border-white w-[80%] md:w-[35%]'>
+    <div className='px-6 py-4 rounded-xl lg:px-8 lg:py-6 md:px-6 md:py-4 border-1 border-white w-[80%] md:w-[70%] lg:w-[35%]'>
         <form className='flex flex-col' onSubmit={handleSubmit}>
             <label className='mb-2 md:mb-2 lg:mb-4 text-base lg:text-xl md:text-base'>Email</label>
             <input 
@@ -303,9 +351,15 @@ function Hero() {
         </form>
     </div>
     </section>
+    
 
+    {/* <div>
+      <p className='text-center mb-10'>Chhavi Dhankhar Portfolio</p>
+    </div> */}
+</motion.section>
     </div>
   )
+
 }
 
 export default Hero
