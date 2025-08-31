@@ -9,6 +9,7 @@ interface IProject extends Document{
     description:string,
     stack:string[],
     video_url:string,
+    image_url:string,
     url:string,
     github_repo:string,
     article:string
@@ -20,6 +21,7 @@ const ProjectSchema = new Schema<IProject>({
     description: {type: String, required:true},
     stack: {type: [String], required:true},
     video_url: {type: String, required:true},
+    image_url: {type: String, required:true},
     url: {type: String, required:false},
     github_repo: {type: String, required:true},
     article: {type: String, required:false},

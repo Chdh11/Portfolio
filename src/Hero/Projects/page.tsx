@@ -16,6 +16,7 @@ interface Project{
   description:string,
   stack:string[],
   video_url:string,
+  image_url:string,
   url:string,
   github_repo:string,
   article:string
@@ -142,21 +143,30 @@ function Projects() {
 
           {/* Right Side: Video or Image */}
           <div className="flex-1 relative h-[220px] md:h-[320px] lg:h-[380px] overflow-hidden">
-            {project.video_url ? (
-              <iframe
-                src={project.video_url}
-                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                className="absolute inset-0 w-full h-full rounded-none lg:rounded-r-xl"
-              />
-            ) : (
-              <Image
-                src={Dummy}
-                alt="Placeholder"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-none lg:rounded-r-xl"
-              />
-            )}
+            
+            {project.image_url ? (
+            <Image
+              src={project.image_url}
+              alt="Project Image"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-none lg:rounded-r-xl"
+            />
+          ) : project.video_url ? (
+            <iframe
+              src={project.video_url}
+              allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+              className="absolute inset-0 w-full h-full rounded-none lg:rounded-r-xl"
+            />
+          ) : (
+            <Image
+              src={Dummy}
+              alt="Placeholder"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-none lg:rounded-r-xl"
+            />
+          )}
           </div>
         </motion.div>
     ))}
