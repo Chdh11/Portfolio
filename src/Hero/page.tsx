@@ -6,7 +6,7 @@ import Projects from '@/Hero/Projects/page'
 import medium from '@/Images/iconmonstr-medium-3-240.png'
 import linkedin from '@/Images/iconmonstr-linkedin-3-240.png'
 import github from '@/Images/iconmonstr-github-1-240.png'
-import placeholder from '@/Images/IMG_1941.png'
+import placeholder from '@/Images/IMG_1941_3.png'
 import about1 from '@/Images/iconmonstr-education-1-240.png'
 import about2 from '@/Images/iconmonstr-computer-10-240.png'
 import about3 from '@/Images/iconmonstr-coffee-5-240.png'
@@ -134,8 +134,8 @@ Hi, I build projects, solve problems, and share what I learn working with
         <Image 
           src={placeholder} 
           alt="Profile picture" 
-          width={400} 
-          height={400} 
+          width={360} 
+          height={360} 
           className="rounded-xl object-cover shadow-lg "
         />
       </div>

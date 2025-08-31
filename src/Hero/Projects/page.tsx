@@ -118,13 +118,16 @@ function Projects() {
                   />
                 </Link>
               )}
-              <Link href={project.github_repo} target="_blank">
+              {project.github_repo && ( 
+                <Link href={project.github_repo} target="_blank">
                 <Image
                   src={github}
                   alt="GitHub Repo"
                   className="w-7 h-7 cursor-pointer"
                 />
               </Link>
+              )}
+              
               {project.article && (
                 <Link href={project.article} target="_blank">
                   <Image
