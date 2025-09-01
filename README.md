@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 Personal Portfolio Website  
 
-## Getting Started
+A responsive and dynamic portfolio built using **Next.js**, **Tailwind CSS**, and **MongoDB**.  
+This portfolio showcases my projects, blogs, and provides a way for users to contact me through a form integrated with a backend API.  
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔗 Live Demo & Article  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Live Demo:** [View Portfolio](https://your-portfolio-link.com)  
+- **Medium Article:** [How I Built My Portfolio](https://medium.com/your-article-link)  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Features  
 
-## Learn More
+- **Dynamic Projects Section** – Fetches project details from MongoDB and displays them.  
+- **Blogs Section** – Displays blogs stored in the database.  
+- **Contact Form** – Allows users to send messages, stored securely in MongoDB.  
+- **Responsive Design** – Fully optimized for desktop, tablet, and mobile screens.  
+- **Smooth Animations** – Implemented using Framer Motion for better UI experience.  
+- **Download Resume Button** – Quick access to my resume.  
+- **Clean UI** – Minimalistic black-and-white theme for better readability.  
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠 Tech Stack  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Frontend:** Next.js, React, Tailwind CSS, Framer Motion  
+- **Backend:** Next.js API Routes  
+- **Database:** MongoDB (via Mongoose)  
+- **Deployment:** Vercel  
+- **Other Tools:** ESLint, TypeScript  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📌 Future Improvements  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Interactive Game or Widget:** Keep visitors engaged.  
+- **Dedicated Project Page:** Detailed descriptions, demo videos.  
+- **3D Elements with Three.js:** To make it visually stunning.  
+
