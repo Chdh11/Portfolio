@@ -7,8 +7,8 @@ This portfolio showcases my projects, blogs, and provides a way for users to con
 
 ## 🔗 Live Demo & Article  
 
-- **Live Demo:** [View Portfolio](https://your-portfolio-link.com)  
-- **Medium Article:** [How I Built My Portfolio](https://medium.com/your-article-link)  
+- **Live Demo:** [View Portfolio](https://portfolio-nine-mu-gp7hkjfg80.vercel.app/)  
+- **Medium Article:** [How I Built My Portfolio](https://medium.com/@chhavidhankhar07/my-portfolio-mvp-what-i-built-and-whats-next-89dfe1b37d7f)  
 
 ---
 
