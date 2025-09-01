@@ -17,6 +17,7 @@ import RotatingText from '../../TextAnimations/RotatingText/RotatingText'
 
 interface Blog{
   _id:string,
+  order:number,
   title:string,
   description:string,
   url:string,

@@ -5,7 +5,7 @@ import Blog from "@/models/blogs";
 export async function GET(){
     try{
         await dbConnect();
-        const blogs=await Blog.find();
+        const blogs=await Blog.find().sort({ order: -1});;
         return NextResponse.json({success:true, data:blogs});
     }catch(error){
         console.log("Error fetching blogs:",error);
