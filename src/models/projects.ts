@@ -12,7 +12,8 @@ interface IProject extends Document{
     image_url:string,
     url:string,
     github_repo:string,
-    article:string
+    article:string,
+    order:number,
 }
 
 const ProjectSchema = new Schema<IProject>({
@@ -25,6 +26,7 @@ const ProjectSchema = new Schema<IProject>({
     url: {type: String, required:false},
     github_repo: {type: String, required:true},
     article: {type: String, required:false},
+    order: {type: Number, required:false},
 })
 
 //Checks if a Project model is already registered (because Next.js hot reload can cause duplicates).

@@ -19,7 +19,8 @@ interface Project{
   image_url:string,
   url:string,
   github_repo:string,
-  article:string
+  article:string,
+  order:number,
 }
 
 function Projects() {

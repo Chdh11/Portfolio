@@ -8,7 +8,7 @@ export async function GET() {
         await dbConnect();
 
         //Step2: fetch
-        const projects=await Project.find();
+        const projects=await Project.find().sort({ order: -1});
 
         //Step3: return JSON response
         return NextResponse.json({success:true, data:projects});
