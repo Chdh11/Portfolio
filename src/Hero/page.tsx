@@ -31,9 +31,9 @@ function Hero() {
   // const [status, setStatus] = useState("");
 
   useEffect(()=>{
-      const fetchBlogs= async ()=>{
+      const fetchBlogs= async (page = 1, limit = 3)=>{
         try{
-          const res=await fetch('api/blogs');
+          const res=await fetch(`/api/blogs?page=${page}&limit=${limit}`);
           console.log(res);
           const data=await res.json();
           console.log(data);
@@ -138,6 +138,7 @@ Hi, I build projects, solve problems, and share what I learn working with
           width={360} 
           height={360} 
           className="rounded-xl object-cover shadow-lg "
+          
         />
       </div>
     {/* </section> */}
