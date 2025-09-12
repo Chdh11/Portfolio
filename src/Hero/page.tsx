@@ -267,6 +267,7 @@ Hi, I build projects, solve problems, and share what I learn working with
             width={500} 
             height={300}
             className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-80 transition duration-300"
+            loading='lazy'
           />
           <div className="absolute inset-0 bg-black/40"></div>
 
