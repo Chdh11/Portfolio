@@ -152,12 +152,14 @@ function Projects() {
               layout="fill"
               objectFit="cover"
               className="rounded-none lg:rounded-r-xl"
+              loading="lazy"
             />
           ) : project.video_url ? (
             <iframe
               src={project.video_url}
               allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
               className="absolute inset-0 w-full h-full rounded-none lg:rounded-r-xl"
+              loading="lazy"
             />
           ) : (
             <Image
@@ -166,6 +168,7 @@ function Projects() {
               layout="fill"
               objectFit="cover"
               className="rounded-none lg:rounded-r-xl"
+              loading='lazy'
             />
           )}
           </div>
