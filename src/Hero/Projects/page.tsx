@@ -29,9 +29,9 @@ function Projects() {
   const [selectedFilter, setSelectedFilter] = useState("All");
 
   useEffect(()=>{
-    const fetchProjects= async ()=>{
+    const fetchProjects= async (page = 1, limit = 9)=>{
       try{
-        const res=await fetch('api/projects');
+        const res=await fetch(`/api/projects?page=${page}&limit=${limit}`);
         console.log(res);
         const data=await res.json();
         console.log(data);

@@ -26,7 +26,7 @@ const ProjectSchema = new Schema<IProject>({
     url: {type: String, required:false},
     github_repo: {type: String, required:true},
     article: {type: String, required:false},
-    order: {type: Number, required:false},
+    order: {type: Number, required:false, index: true},
 })
 
 //Checks if a Project model is already registered (because Next.js hot reload can cause duplicates).
