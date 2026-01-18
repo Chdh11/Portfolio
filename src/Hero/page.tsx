@@ -69,7 +69,7 @@ function Hero() {
   const { scrollYProgress } = useScroll()
 
   return (
-    <div className='text-white bg-black'>
+    <div className='text-white'>
       {/* <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-white origin-left z-50"
         style={{ scaleX: scrollYProgress }}
@@ -77,7 +77,7 @@ function Hero() {
 
     {/* Top bar */}
     <section className="fixed top-0 left-0 w-full z-50  lg:mt-6">
-        <div className="max-w-7xl mx-auto flex items-center bg-black/80 backdrop-blur-sm px-4 py-3 md:border-1 rounded">
+        <div className="max-w-7xl mx-auto flex items-center bg-red/80 backdrop-blur-sm px-4 py-3 md:border-2 rounded">
              <h1 className="text-xl font-bold">PORTFOLIO</h1>
             <div className='ml-auto flex md:gap-5'>
                 <Link href='https://github.com/Chdh11' target='blank'><Image src={github} alt="Github" className='w-[30px] h-[30px]  hidden md:block '/></Link>
@@ -100,10 +100,12 @@ function Hero() {
       {/* Left: Text Section */}
       
       <div className="flex-1 flex flex-col text-center lg:text-left px-10 lg:px-6 sm:w-[70%] md:w-[70%] ">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 ">
           CHHAVI DHANKHAR
         </h1>
-        <p className="mb-8 text-xs md:text-base">
+        <p className="mb-8 text-xs md:text-base ">
+        Early-career <b className='inline-block text-[#c92626] bg-white rounded px-2 py-1 ml-1 mr-1 -translate-y-1 rotate-[-2deg] hover:rotate-[2deg] cursor-pointer'>Software Engineer</b> focused on building thoughtful, end-to-end products while learning along the way.</p>
+        {/*<p className="mb-8 text-xs md:text-base">
 Hi, I build projects, solve problems, and share what I learn working with  
   <span className="inline-block">
     <RotatingText
@@ -119,12 +121,12 @@ Hi, I build projects, solve problems, and share what I learn working with
       rotationInterval={2000}
     />
   </span>
-</p>
+</p>*/}
 
         <Link
         href="/resume.pdf"
         download="Chhavi_Dhankhar_Resume.pdf"
-        className="border px-5 py-3 text-xs md:text-base text-center rounded-xl cursor-target hover:shadow-md transition hover:bg-white/10 hover:scale-105 "
+        className="border border-2 px-5 py-3 text-xs md:text-base text-center rounded-xl cursor-target hover:shadow-md transition hover:bg-white/10 hover:scale-105 "
         >
           Download Resume
         </Link>
@@ -164,18 +166,18 @@ Hi, I build projects, solve problems, and share what I learn working with
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.6, delay: 0.2 }}
     >
-      When I&apos;m not coding, you&apos;ll find me crocheting or reading.
+      When I&apos;m not coding, I enjoy crocheting and reading.
     </motion.p>
 
     <div className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-12 justify-center items-center w-full max-w-screen-lg">
       {[
-        { img: about1, title: "Education", text: "I hold a Computer Engineering degree, with a solid foundation in software development and exposure to hardware." },
-        { img: about2, title: "What I Build", text: "I majorly work with full-stack development and AI/ML to build real-world, innovative, and impactful projects." },
-        { img: about3, title: "My Drive", text: "Driven by curiosity and a passion for learning, I constantly refine my skills and take on projects that push me forward." },
+        { img: about1, title: "Education", text: "Computer Engineering graduate with a background in software development and basic exposure to hardware systems." },
+        { img: about2, title: "What I Build", text: "I work on full-stack applications and data-driven features, building end-to-end and learning through real projects." },
+        { img: about3, title: "My Drive", text: "I enjoy learning by building, improving my skills over time, and working on problems that feel meaningful." },
       ].map((item, i) => (
         <motion.div 
           key={i} 
-          className="flex flex-col  items-center text-center w-[80%] md:w-[380px] lg:w-[30%] p-6 rounded-xl border border-gray-300 bg-white/5 hover:bg-white/10 shadow-lg hover:shadow-2xl transition duration-300"
+          className="flex flex-col  items-center text-center w-[80%] md:w-[380px] lg:w-[30%] p-6 rounded-xl border border-2 border-gray-300 bg-white/5 hover:bg-white/10 shadow-lg hover:shadow-2xl transition duration-300"
           initial={{ opacity: 0, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -323,7 +325,7 @@ Hi, I build projects, solve problems, and share what I learn working with
         <Link
         href="/resume.pdf"
         download="Chhavi_Dhankhar_Resume.pdf"
-        className="border px-5 py-3 text-xs md:text-base text-center rounded-xl cursor-target hover:shadow-md transition mb-10  hover:scale-105 hover:bg-white/10 "
+        className="border border-2 px-5 py-3 text-xs md:text-base text-center rounded-xl cursor-target hover:shadow-md transition mb-10  hover:scale-105 hover:bg-white/10 "
         >
           Download Resume
         </Link>
@@ -334,7 +336,7 @@ Hi, I build projects, solve problems, and share what I learn working with
             <Link href='https://medium.com/@chhavidhankhar07' target='blank'><Image src={medium} alt="Medium" className='w-[25px] h-[25px] md:w-[30px] md:h-[30px] hover:scale-125 transition '/></Link>
         </div>
     </div>
-    <div className='px-6 py-4 rounded-xl lg:px-8 lg:py-6 md:px-6 md:py-4 border-1 border-white w-[80%] md:w-[70%] lg:w-[35%]'>
+    <div className='px-6 py-4 rounded-xl lg:px-8 lg:py-6 md:px-6 md:py-4 border-2 border-white w-[80%] md:w-[70%] lg:w-[35%]'>
         <form className='flex flex-col' onSubmit={handleSubmit}>
             <label className='mb-2 md:mb-2 lg:mb-4 text-base lg:text-xl md:text-base'>Email</label>
             <input 
@@ -342,13 +344,13 @@ Hi, I build projects, solve problems, and share what I learn working with
             placeholder='Enter your email address' 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className='mb-2 md:mb-2 rounded lg:mb-4 border-1 border-white border-opacity-100 px-2 py-2 lg:px-3 lg:py-3 md:px-2 md:py-2 text-xs md:text-xs lg:text-base'/>
+            className='mb-2 md:mb-2 rounded lg:mb-4 border-2 border-white border-opacity-100 px-2 py-2 lg:px-3 lg:py-3 md:px-2 md:py-2 text-xs md:text-xs lg:text-base'/>
 
             <label className='mb-2 md:mb-2 lg:mb-4  text-base lg:text-xl md:text-base'>Message</label>
             <textarea placeholder='What do you want to talk about?' 
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className='mb-2 md:mb-2 rounded lg:mb-4 border-1 border-white border-opacity-10 px-2 py-2 lg:px-3 lg:py-3 md:px-2 md:py-2 h-[150px] text-xs md:text-xs lg:text-base mb-3 md:mb-5 lg:mb-7'/>
+            className='mb-2 md:mb-2 rounded lg:mb-4 border-2 border-white border-opacity-10 px-2 py-2 lg:px-3 lg:py-3 md:px-2 md:py-2 h-[150px] text-xs md:text-xs lg:text-base mb-3 md:mb-5 lg:mb-7'/>
 
             <button type='submit'  className='cursor-target inline-block px-6 py-2 md:px-6 md:py-3 text-xs md:text-base bg-white text-black rounded border border-white transition cursor-pointer'>Submit</button>
         </form>
